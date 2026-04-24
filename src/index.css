@@ -1,0 +1,108 @@
+/* ═══════════════════════════════════════════════════════════
+   DentalIQ — index.css
+   Global base styles · loaded once at root level
+   Change brand colours here → everything updates
+═══════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* ── CSS TOKENS (rename brand here) ── */
+:root {
+  /* Page & surfaces */
+  --page:    #F0F4FF;
+  --surface: #F5F7FF;
+  --card:    #FFFFFF;
+  --inset:   #EDF1FB;
+
+  /* Primary — indigo (change this to rebrand) */
+  --ind:   #4F5BD5;
+  --ind-d: #3A46B8;
+  --ind-l: #7B87E8;
+
+  /* Secondary — teal */
+  --tea:   #0891B2;
+  --tea-d: #0670A0;
+
+  /* Semantic */
+  --grn:  #059669;
+  --amb:  #B45309;
+  --red:  #DC2626;
+
+  /* Text — deep navy tiers */
+  --tx1: #111827;
+  --tx2: #2D3A6E;
+  --tx3: #7B8AB5;
+  --tx4: #B8C4DC;
+
+  /* Borders */
+  --br1: #DDE5F5;
+  --br2: #C0CCEA;
+
+  /* Fonts */
+  --font-sans: 'Space Grotesk', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Radii */
+  --r-sm:  6px;
+  --r-md: 10px;
+  --r-lg: 14px;
+}
+
+/* ── RESET ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── BASE ── */
+html, body, #root {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--page);
+  font-family: var(--font-sans);
+  color: var(--tx1);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  max-width: none !important;
+  padding: 0 !important;
+}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar          { width: 5px; height: 5px; }
+::-webkit-scrollbar-track    { background: #E8EDF8; }
+::-webkit-scrollbar-thumb    { background: #B8C4DC; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--ind); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1);   }
+  50%       { opacity: .4; transform: scale(.8); }
+}
+@keyframes sweep {
+  0%   { transform: translateY(-100%); }
+  100% { transform: translateY(800%);  }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── UTILITY ── */
+.mono { font-family: var(--font-mono); }
+
+/* ── RESPONSIVE BREAKPOINTS ── */
+@media (max-width: 1200px) {
+  /* Narrow the max content width on smaller screens */
+  .content-wrap { padding: 20px 18px 48px; }
+}
+@media (max-width: 768px) {
+  .tab-btn      { padding: 8px 12px; font-size: 11px; }
+  td, th        { padding: 7px 10px; }
+}
